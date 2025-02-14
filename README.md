@@ -1,4 +1,4 @@
-## Hi there 👋
+Welcome! This code repository contains practice SQL queries I've written. Feel free to take a look and let me know if you have any questions. 
 
 <!--
 **jjessl/jjessl** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
