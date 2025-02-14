@@ -1,0 +1,32 @@
+/* What does the app's SQL look like? In this project, I created a workout tracker where users can track their workouts by date, duration, activity, and buddy. */
+
+CREATE TABLE workout_planner (id INTEGER PRIMARY KEY, date TEXT, duration_min INTEGER, activity TEXT);
+
+INSERT INTO workout_planner VALUES (1, "1/20/25", 90, "weights legs + cardio");
+INSERT INTO workout_planner VALUES (2, "1/21/25", 45, "pilates");
+INSERT INTO workout_planner VALUES (3, "1/22/25", 75, "weights pull + cardio");
+INSERT INTO workout_planner VALUES (4, "1/23/25", 45, "pilates");
+INSERT INTO workout_planner VALUES (5, "1/24/25", 45, "pilates");
+INSERT INTO workout_planner VALUES (6, "1/24/25", 80, "weights push + cardio");
+INSERT INTO workout_planner VALUES (7, "1/25/25", 45, "pilates");
+INSERT INTO workout_planner VALUES (8, "1/25/25", 100, "weights legs + cardio"); 
+
+SELECT * FROM workout_planner;
+
+-- Edited the activity of workout 4 (id = 4)
+UPDATE workout_planner SET activity = "cardio + abs" WHERE id = 4; 
+SELECT * FROM workout_planner;
+
+-- Removed a workout log (id = 5)
+DELETE FROM workout_planner WHERE id = 5; 
+SELECT * FROM workout_planner; 
+
+-- Created a column that allows users to log who they worked out with
+ALTER TABLE workout_planner ADD buddy TEXT default "no";
+SELECT * FROM workout_planner; 
+
+-- Went back and updated the buddy part of the workout log after creating the column to track
+UPDATE workout_planner SET buddy = "Poppy" where id = 3;
+UPDATE workout_planner SET buddy = "Rex" where id = 6;
+UPDATE workout_planner SET buddy = "Mory" where id = 8;
+SELECT * FROM workout_planner;
