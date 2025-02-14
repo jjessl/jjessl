@@ -1,0 +1,28 @@
+-- Create a store database 
+
+CREATE TABLE veggie_store (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, aisle INTEGER);
+
+INSERT INTO veggie_store VALUES (1, "carrot", 35, 0.75, 1);
+INSERT INTO veggie_store VALUES (2, "beets", 20, 1, 1);
+INSERT INTO veggie_store VALUES (3,"potatoes", 40, 0.25, 1);
+INSERT INTO veggie_store VALUES (4, "kale", 30, 1.50, 2);
+INSERT INTO veggie_store VALUES (5, "spinach", 35, 1, 2);
+INSERT INTO veggie_store VALUES (6, "cabbage", 15, 0.75, 2);
+INSERT INTO veggie_store VALUES (7, "broccoli", 45, 0.75, 2);
+INSERT INTO veggie_store VALUES (8, "mint", 15, 0.25, 3);
+INSERT INTO veggie_store VALUES (9, "basil", 10, 0.50, 3);
+INSERT INTO veggie_store VALUES (10, "green onions", 45, 0.10, 3);
+INSERT INTO veggie_store VALUES (11, "cilantro", 40, 0.25, 3);
+INSERT INTO veggie_store VALUES (12, "tomatoes", 35, 0.75, 4);
+INSERT INTO veggie_store VALUES (13, "lemons", 30, 0.25, 4); 
+INSERT INTO veggie_store VALUES (14, "limes", 30, 0.25, 4);
+INSERT INTO veggie_store VALUES (15, "red onion", 35, 0.50, 4);
+
+-- Display all store items ordered by price 
+SELECT * from veggie_store ORDER BY price; 
+
+-- Display all store items by aisle and price
+SELECT * from veggie_store ORDER BY aisle, price;
+
+-- What is the total number of goods (total inventory) in the store? 
+SELECT SUM(quantity) FROM veggie_store;
