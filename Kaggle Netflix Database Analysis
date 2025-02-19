@@ -1,0 +1,106 @@
+-- Display number of each subscription type
+SELECT
+	Subscription_Type,
+	COUNT(*) AS Amount
+FROM Netflix_Userbase
+GROUP BY Subscription_Type;
+
+-- Determine the monthly revenue of each subscription type 
+SELECT 
+	Subscription_Type, 
+	SUM (Monthly_Revenue) AS 'Monthly Revenue'
+FROM Netflix_Userbase
+GROUP BY Subscription_Type;
+
+-- Determine monthly revenue of each subscription type by country
+SELECT 
+	Subscription_Type, 
+	Country, 
+	SUM (Monthly_Revenue) AS 'Monthly Revenue'
+FROM Netflix_Userbase
+GROUP BY Subscription_Type, Country
+ORDER BY Country;
+
+-- What is the most used device?
+SELECT
+	Device, 
+	COUNT(*) AS Amount
+FROM Netflix_Userbase
+GROUP BY Device
+ORDER BY Device DESC; 
+
+-- Determine number of users joined each year
+SELECT
+	CASE
+		WHEN Join_Date LIKE '%-21' THEN '2021'
+		WHEN Join_Date LIKE '%-22' THEN '2022'
+		WHEN Join_Date LIKE '%-23' THEN '2023'
+		END AS Join_Year,
+	COUNT(*)
+FROM Netflix_Userbase
+GROUP BY Join_Year;
+
+-- Find the number of subscriptions joined each month (which months had the most and least joins?)
+SELECT
+	CASE
+		WHEN Join_Date LIKE '%-01-%' THEN 'January'
+		WHEN Join_Date LIKE '%-02-%' THEN 'February'
+		WHEN Join_Date LIKE '%-03-%' THEN 'March'
+		WHEN Join_Date LIKE '%-04-%' THEN 'April'
+		WHEN Join_Date LIKE '%-05-%' THEN 'May'
+		WHEN Join_Date LIKE '%-06-%' THEN 'June'
+		WHEN Join_Date LIKE '%-07-%' THEN 'July'
+		WHEN Join_Date LIKE '%-08-%' THEN 'August'
+		WHEN Join_Date LIKE '%-09-%' THEN 'September'
+		WHEN Join_Date LIKE '%-10-%' THEN 'October'
+		WHEN Join_Date LIKE '%-11-%' THEN 'November'
+		WHEN Join_Date LIKE '%-12-%' THEN 'December'
+		END AS Join_Month,
+	COUNT(*) AS Amount
+FROM Netflix_Userbase
+GROUP BY Join_Month
+ORDER BY  Amount DESC;
+	
+-- What is the monthly revenue by gender (what gender has the most monthly revenue?)
+SELECT 
+	Gender,
+	SUM(Monthly_Revenue)
+FROM Netflix_Userbase
+GROUP BY Gender
+ORDER BY SUM(Monthly_Revenue) DESC;
+
+--What the the total number of each device per country (what is the most and least used device in each country?)
+SELECT
+	Country, 
+	Device,
+	COUNT(*)
+FROM Netflix_Userbase
+GROUP BY Device, Country
+ORDER BY Country, COUNT(*) DESC; 
+
+-- What is the average age of customers in each country?
+SELECT
+	Country, 
+	AVG(Age) AS Average_Age
+FROM Netflix_Userbase
+GROUP BY Country
+ORDER BY Average_age DESC;
+
+-- What is the oldest and youngest age in each country?
+SELECT
+	Country, 
+	MAX(Age), 
+	MIN (Age)
+FROM Netflix_Userbase
+GROUP BY Country
+ORDER BY Country ASC;
+
+-- What is the total monthly revenue per country? What country brings in the most monthly revenue? What country brings in the lowest monthly revenue?
+SELECT
+	Country, 
+	SUM(Monthly_revenue) AS Monthly_Revenue
+FROM Netflix_Userbase
+GROUP BY Country
+ORDER BY Monthly_Revenue DESC;
+
+--
