@@ -1,0 +1,49 @@
+--join all monthly data files into one combined table 
+CREATE TABLE 'combined_tripdata_2024' AS 
+	SELECT * FROM Jan2024
+	UNION 
+	SELECT * FROM Feb2024
+	UNION 
+	SELECT * FROM Mar2024
+	UNION 
+	SELECT * FROM Apr2024
+	UNION 
+	SELECT * FROM May2024
+	UNION 
+	SELECT * FROM Jun2024
+	UNION 
+	SELECT * FROM Jul2024
+	UNION 
+	SELECT * FROM Aug2024
+	UNION 
+	SELECT * FROM Sep2024
+	UNION 
+	SELECT * FROM Oct2024
+	UNION 
+	SELECT * FROM Nov2024
+	UNION 
+	SELECT * FROM Dec2024
+
+-- count number of rows in combined table
+SELECT COUNT(*) FROM combined_tripdata_2024;
+-- There's 5860568 rows of uncleaned data  
+
+--return count of rows with NULL values 
+SELECT COUNT(*) FROM combined_tripdata_2024
+	WHERE start_station_name IS NULL OR end_station_name IS NULL OR start_station_id IS NULL OR ;
+
+SELECT 
+ COUNT(*) - COUNT(ride_id) ride_id,
+ COUNT(*) - COUNT(rideable_type) rideable_type,
+ COUNT(*) - COUNT(started_at) started_at,
+ COUNT(*) - COUNT(ended_at) ended_at,
+ COUNT(*) - COUNT(start_station_name) start_station_name,
+ COUNT(*) - COUNT(start_station_id) start_station_id,
+ COUNT(*) - COUNT(end_station_name) end_station_name,
+ COUNT(*) - COUNT(end_station_id) end_station_id,
+ COUNT(*) - COUNT(start_lat) start_lat,
+ COUNT(*) - COUNT(start_lng) start_lng,
+ COUNT(*) - COUNT(end_lat) end_lat,
+ COUNT(*) - COUNT(end_lng) end_lng,
+ COUNT(*) - COUNT(member_casual) member_casual
+FROM combined_tripdata_2024;
