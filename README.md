@@ -1,4 +1,14 @@
-Welcome! This code repository contains practice SQL queries I've written. Feel free to take a look and let me know if you have any questions. 
+Welcome! I am a Pharmaceutical Sciences graduate making a transition into data analytics and actively pursuing junior or apprenticeship roles. With a deep foundation in scientific research and quantitative reasoning, I’ve recently earned the Google Data Analytics Professional Certificate, gaining hands-on experience in data cleaning, visualization, and reporting using tools like SQL, R, and Excel.
+
+My academic background equips me with strong attention to detail, analytical thinking, and the ability to interpret complex datasets—skills. Through personal projects and coursework, I’m honing proficiency in:
+
+Data wrangling and cleaning (Excel, SQL)
+
+Exploratory data analysis and visualization (Google Sheets, Tableau, R/Python)
+
+Reporting and storytelling, translating raw data into clear recommendations
+
+This code repository contains practice SQL queries I've written. Feel free to take a look and let me know if you have any questions. 
 
 <!--
 **jjessl/jjessl** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
